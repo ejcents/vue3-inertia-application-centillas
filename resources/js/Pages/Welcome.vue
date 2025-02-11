@@ -15,8 +15,6 @@ const message = ref("This is an Inertia App.")
         <LoremText>
             <!-- LoremText.vue Template -->
         </LoremText>
-
-    <p>Hello</p>
 </MainLayout>
 
 
