@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .links{
+        @apply p-4 text-white font-bold hover:text-black duration-300;
+    }
+    .food {
+        @apply text-sm font-medium
+    }
+    .headOne {
+        @apply text-5xl font-black text-center hover:text-blue-700 hover:cursor-pointer mb-5 py-5 duration-300
+    }
+}
