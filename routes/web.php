@@ -13,7 +13,7 @@ Route::get('/home', function () {
     return Inertia::render('Welcome');
 });
 
-// Protect /products - Only Authenticated Users Can Access this
+// Protect '/products' -> only Authenticated Users Can Access this
 Route::middleware('auth')->get('/products', function () {
     return Inertia::render('Products');
 });

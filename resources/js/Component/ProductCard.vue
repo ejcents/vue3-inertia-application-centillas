@@ -1,4 +1,3 @@
-```javascript
 <script setup>
 import { ref } from 'vue';
 import menudeImage from './menude.jpg';
@@ -35,4 +34,3 @@ const dishes = ref([
     </div>
   </div>
 </template>
-```
