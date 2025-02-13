@@ -1,21 +1,15 @@
 <script setup>
-import {ref} from 'vue'
+import { computed } from 'vue';
+import { usePage } from '@inertiajs/vue3';
 import MainLayout from './MainLayout.vue';
-import LoremText from './LoremText.vue';
+import Description from './WelcomeDescription.vue';
 
-
-const message = ref("This is an Inertia App.")
-
+const user = computed(() => usePage().props.auth.user);
 </script>
 
 <template>
-
-<MainLayout>
-    <h1 class="headOne">Hello World!</h1>
-        <LoremText>
-            <!-- LoremText.vue Template -->
-        </LoremText>
-</MainLayout>
-
-
+  <MainLayout>
+    <h1 class="headOne">Hello {{ user?.name || 'Guest' }}!</h1>
+    <Description />
+  </MainLayout>
 </template>

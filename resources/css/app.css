@@ -10,6 +10,9 @@
         @apply text-sm font-medium
     }
     .headOne {
-        @apply text-5xl font-black text-center hover:text-blue-700 hover:cursor-pointer mb-5 py-5 duration-300
+        @apply text-5xl text-center mt-24 font-black text-center mb-2 py-2  duration-300
+    }
+    .cards {
+        @apply w-[100%] max-w-sm rounded overflow-hidden shadow-lg
     }
 }

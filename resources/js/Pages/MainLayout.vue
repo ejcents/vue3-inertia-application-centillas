@@ -1,31 +1,44 @@
 <script setup>
-import {Link} from '@inertiajs/vue3'
+import { Link, usePage, useForm } from '@inertiajs/vue3';
 
+const page = usePage();
+const isAuthenticated = page.props.auth?.user !== null;
+
+const form = useForm({});
+
+const logout = () => {
+    form.post('/logout');
+};
 </script>
 
 <template>
-    <nav class="flex justify-between p-5  bg-blue-500 shadow-xl fixed top-0 w-full">
+    <nav class="flex justify-between items-center p-[10px] bg-blue-500 shadow-xl fixed top-0 w-full">
         <div class="logo">
-            <h1 class="text-2xl font-semibold ">My<span class="text-red-600/90">
-                Awesome App
-            </span> </h1>
-
+            <h1 class="text-2xl font-semibold">
+                My
+                <span class="text-blue-200">
+                    Awesome App
+                </span>
+            </h1>
         </div>
-        <div class="">
-            <Link href="/" class="links">Home</Link>
-            <Link href="/products" class="links">Products</Link>
-            <Link href="#" class="links">FAQ</Link>
-            <Link href="#" class="links">Contact Us</Link>
-
+        <div class="flex flex-col md:flex-row">
+            <Link href="/home" class="links">Home</Link>
+            <template v-if="isAuthenticated">
+                <Link href="/products" class="links">Products</Link>
+            </template>
+            <Link href="/questions" class="links">FAQ</Link>
+            <Link v-if="!isAuthenticated" href="/login" class="links">Login</Link>
+            <button v-if="isAuthenticated" @click="logout" class="links bg-red-500 text-white px-3 py-2 rounded-[10px]">
+                Logout
+            </button>
         </div>
     </nav>
 
     <main class="my-20 min-h-screen">
-    <slot />
-
+        <slot />
     </main>
 
-    <footer class=" bg-red-300 p-5">
-        <p class="capitalize text-center">this is a footer</p>
+    <footer class="bg-blue-500 p-5">
+        <p class="text-white font-bold uppercase text-center">this is a footer</p>
     </footer>
 </template>
