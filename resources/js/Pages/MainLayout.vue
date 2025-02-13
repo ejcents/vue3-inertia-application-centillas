@@ -28,7 +28,7 @@ const logout = () => {
             </template>
             <Link href="/questions" class="links">FAQ</Link>
             <Link v-if="!isAuthenticated" href="/login" class="links">Login</Link>
-            <button v-if="isAuthenticated" @click="logout" class="links bg-red-500 text-white px-3 py-2 rounded-[10px]">
+            <button v-if="isAuthenticated" @click="logout" class="links">
                 Logout
             </button>
         </div>
